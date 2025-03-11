@@ -1,12 +1,28 @@
-# React + Vite
+# Replicating Paste's 4.0 webpage (Very Legal)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Overview:
+This implementation uses React and GSAP (with ScrollTrigger) to create dynamic, animation with 3 main components.
 
-Currently, two official plugins are available:
+## Components:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+    ### Header:
+        Displays the logo, title, and a "Try for free" button.
+        Initially positioned off-screen (using y: -100) and slides down when the intro section is fully scrolled past.
+        The slide animation is handled in the App component with GSAP ScrollTrigger.
 
-## Expanding the ESLint configuration
+    ### GsapIntroAnimation:
+        Contains animated text, logo, and background.
+        An overlay darkens the section as the user scrolls.
+        The section is pinned using ScrollTrigger (with pinSpacing: false) so the next section can cover it.
 
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+    ### HeroSection:
+        Features large laptop images and descriptive text.
+        The laptop sliding animation starts immediately when the section appears, and is scrubbed to the scroll for a dynamic effect.
+        No pin is used here so scrolling remains fluid.
+
+## App Component:
+
+    Wraps the components in a container with zero margin/padding to avoid any unwanted gaps.
+    Sets up the header’s slide-down animation using GSAP ScrollTrigger based on the scroll position of the intro section.
+
+There are suppossed to be 8 more sections to work on for this is just 20% of the total sections needs to be done. I may work on those soon (lie)
